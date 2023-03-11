@@ -8,7 +8,7 @@ const isProd = !isDev;
 module.exports = {
     mode: 'development',
     devtool: 'inline-source-map',
-    entry: './src/index.ts',
+    entry: './src/index.tsx',
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].[contenthash].js'
@@ -19,7 +19,12 @@ module.exports = {
                 test: /\.s[ac]ss$/i,
                 use: [
                     MiniCssExtractPlugin.loader, 
-                    'css-loader', 
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: true
+                        }
+                    }, 
                     'sass-loader'
                 ]
             },
