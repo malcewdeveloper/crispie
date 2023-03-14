@@ -5,6 +5,7 @@
     "sourceMap": true,
     "target": "ES6",
     "module": "commonjs",
+    "strict": false,
     "esModuleInterop": true,
     "jsx": "react",
     "plugins": [{"name": "typescript-plugin-css-modules"}]
