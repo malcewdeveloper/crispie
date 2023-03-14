@@ -22,7 +22,12 @@ module.exports = {
                     {
                         loader: 'css-loader',
                         options: {
-                            modules: true
+                            modules: {
+                                mode: 'local',
+                                auto: true,
+                                localIdentName: '[folder]__[local]_[hash]',
+                                localIdentHashDigestLength: 4,
+                            }
                         }
                     }, 
                     'sass-loader'
