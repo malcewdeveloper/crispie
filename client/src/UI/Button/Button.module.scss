@@ -1,0 +1,30 @@
+@import '../../styles/variables.scss';
+
+.root {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: 2px solid $orange;
+  border-radius: 5px;
+  background-color: transparent;
+  color: $black;
+  cursor: pointer;
+  padding: 7px 14px;
+  
+  &.primary {
+    background-color: $orange;
+  }
+  &.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+  &.outlined {
+    background-color: transparent;
+    border: 2px solid $orange;
+  }
+  &:hover {
+    background-color: transparent;
+    border: 2px solid $orange;
+    color: $orange;
+  }
+}
