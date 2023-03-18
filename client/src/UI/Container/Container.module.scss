@@ -1,0 +1,24 @@
+.root {
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 24px;
+    padding-right: 24px;
+    width: 100%;
+    &.xs {
+        max-width: 400px;
+    }
+    &.sm {
+        max-width: 600px;
+    }
+    &.md {
+        max-width: 900px;
+    }
+    &.lg {
+        max-width: 1200px;
+    }
+    &.xl {
+        max-width: 1536px;
+    }
+
+}
