@@ -20,5 +20,8 @@
     &.xl {
         max-width: 1536px;
     }
+    &.disablePaddings {
+        padding: 0;
+    }
 
 }
