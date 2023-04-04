@@ -1,9 +1,22 @@
+@import '../../styles/variables.scss';
+
 .root {
+    min-height: 39px;
     border: 0;
-    background-color: #f6f6f6;
+    background-color: #fff;
+    border-radius: 5px;
+    box-sizing: border-box;
     color: #555;
     outline: none;
-    padding: 0;
-    min-height: 30px;
-    width: 100%;
+    padding: 8px;
+    line-height: 21px;
+    
+    &.error {
+        border: 2px solid red;
+    }
+    &.disabled {
+        border: 2px solid $lightBlack;
+        opacity: 0.5;
+        touch-action: none;
+    }
 }
