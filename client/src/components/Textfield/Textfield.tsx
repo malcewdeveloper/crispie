@@ -27,7 +27,7 @@ interface ITextfieldProps extends IInputBaseProps, IInputLabelBaseProps, IInputH
     helperText?: string;
 }
 
-export default function Textfiled(props: ITextfieldProps): ReturnType<React.FC> {
+export default function Textfield(props: ITextfieldProps): ReturnType<React.FC> {
     const { 
         autoComplete,
         placeholder,
