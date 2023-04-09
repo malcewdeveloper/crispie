@@ -1,0 +1,27 @@
+@import '../../styles/variables.scss';
+
+.root {
+    appearance: none;
+    border: none;
+    border-radius: 50%;
+    background-color: transparent;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-decoration: none;
+    transition: .2s ease-in-out;
+    &.disabled {
+        opacity: 0.5;
+        pointer-events: none;
+    }
+    &.primary {
+        color: $orange;
+    }
+    &:hover {
+        background-color: $textHover;
+    }
+}
