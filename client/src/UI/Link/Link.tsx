@@ -11,6 +11,7 @@ interface ILinkProps {
     component?: 'button' | string;
     href?: string;
     underline?: 'always' | 'hover' | 'none';
+    style?: React.CSSProperties;
 }
 
 
@@ -22,7 +23,8 @@ const Link = (props: ILinkProps) => {
         color='inherit',
         component='a',
         href, 
-        underline='always'
+        underline='always',
+        style
     } = props;
 
     const styles = clsx({
@@ -32,14 +34,14 @@ const Link = (props: ILinkProps) => {
         [classes.underlineHover]: underline === 'hover',
         [classes.underlineAlways]: underline === 'always',
         [classes.primary]: color === 'primary',
-        [classes.inherit]: color === 'inherit'
+        [classes.inherit]: color === 'inherit' 
     })
     
     if(!href || component && component === 'button') {
         return <button className={ styles }>{ children }</button>;
     }
 
-    return <a href={ href } className={ styles }>{ children }</a>;
+    return <a href={ href } className={ styles } style={ style }>{ children }</a>;
 
 }
 
