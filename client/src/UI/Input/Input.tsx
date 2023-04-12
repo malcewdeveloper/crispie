@@ -28,6 +28,7 @@ export default function Input(props: IInputBaseProps): ReturnType<React.FC> {
         type = 'text',
         style,
         className,
+        fullWidth,
         error,
         value
     } = props;
@@ -35,6 +36,7 @@ export default function Input(props: IInputBaseProps): ReturnType<React.FC> {
     const styles = clsx({
         [classes.root]: true,
         [classes.disabled]: disabled,
+        [classes.fullWidth]: fullWidth,
         [classes.error]: error,
         [className]: className
     })

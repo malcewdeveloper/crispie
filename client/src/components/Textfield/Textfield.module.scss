@@ -1,10 +1,10 @@
 .root {
     position: relative;
-    .disabled {
+    &.disabled {
         opacity: 0.5;
         pointer-events: none;
     }
-    .fullWidth {
+    &.fullWidth {
         width: 100%;
     }
 }

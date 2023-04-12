@@ -7,7 +7,7 @@
     display: flex;
     position: relative;
     align-items: center;
-    .fullWidth {
+    &.fullWidth {
         width: 100%;
     }
     input {

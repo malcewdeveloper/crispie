@@ -10,7 +10,9 @@
     outline: none;
     padding: 8px;
     line-height: 21px;
-    
+    &.fullWidth {
+        width: 100%;
+    }
     &.error {
         border: 2px solid red;
     }
