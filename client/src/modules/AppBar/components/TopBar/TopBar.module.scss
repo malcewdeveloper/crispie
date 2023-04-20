@@ -1,0 +1,9 @@
+@import '../../../../styles/variables.scss';
+
+.root {
+    align-items: center;
+    background-color: $orange;
+    display: flex;
+    justify-content: space-between;
+    height: 38px;
+}

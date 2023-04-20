@@ -1,0 +1,11 @@
+.root {
+    &.static {
+        position: static;
+    }
+    &.fixed {
+        position: fixed;
+    }
+    &.sticky {
+        position: sticky;
+    }
+}
