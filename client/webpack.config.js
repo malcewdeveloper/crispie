@@ -95,7 +95,8 @@ module.exports = {
     ],
     devServer: {
         port: 4000,
-        hot: isDev
+        hot: isDev,
+        historyApiFallback: true
     },
     resolve: {
         extensions: ['.js', '.jsx', '.ts' ,'.tsx']
