@@ -1,0 +1,17 @@
+.root {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    .avatar {
+        display: flex;
+        flex: 0 0 auto;
+        margin-right: 16px;
+    }
+    .content {
+        flex: 1 1 auto;
+    }
+    .action {
+        align-self: flex-start;
+        flex: 0 0 auto;
+    }
+}
