@@ -1,0 +1,6 @@
+.root {
+    padding: 16px;
+    &:last-child {
+        padding-bottom: 24px;
+    }
+}
