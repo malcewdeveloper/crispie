@@ -5,15 +5,17 @@ import classes from './Card.module.scss';
 
 export interface ICard {
     children?: React.ReactNode;
+    className?: string;
     style?: React.CSSProperties;
 }
 
 export default function Card(props: ICard): ReturnType<React.FC> {
 
-    const { children, style } = props;
+    const { children, style, className } = props;
 
     const styles = clsx({
-        [classes.root]: true
+        [classes.root]: true,
+        [className]: className
     })
 
     return (
