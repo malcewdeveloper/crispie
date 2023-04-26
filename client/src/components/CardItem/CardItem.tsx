@@ -4,12 +4,15 @@ import Card from '../../UI/Card/Card';
 import CardMedia from '../../UI/CardMedia/CardMedia';
 import CardContent from '../../UI/CardContent/CardContent';
 import CardActions from '../../UI/CardActions/CardActions';
+import Typography from '../../UI/Typography/Typography';
+import Link from '../../UI/Link/Link';
 import classes from './CardItem.module.scss';
 
 interface ICardItem {
     actions?: React.ReactNode;
     title?: string;
     image?: string;
+    id?: number;
     merchant?: string;
     price?: number;
     rating?: number;
@@ -23,6 +26,7 @@ export default function CardItem(props: ICardItem): ReturnType<React.FC> {
         actions,
         title, 
         image, 
+        id,
         merchant, 
         price, 
         rating, 
@@ -36,12 +40,16 @@ export default function CardItem(props: ICardItem): ReturnType<React.FC> {
 
     return (
         <Card className={ styles } style={ style }>
-            <CardMedia image={ image } alt={ title } />
+            <Link href={`/goods/${id}`}>
+                <CardMedia image={ image } alt={ title } />
+            </Link>
             <CardContent>
-                <div>{ title }</div> 
-                <p>{ merchant }</p>
+                <Typography component='div'>{ title }</Typography>
+                <Typography component='p' style={{
+                    color: '#888'
+                }}>{ merchant }</Typography>
                 <div>☆☆☆☆☆</div> 
-                <h5>{ price }</h5>
+                <Typography variant='h5'>{ price + '₽' }</Typography>
             </CardContent>
             {actions && <CardActions style={{
                 position: 'absolute', 
