@@ -9,6 +9,7 @@ export interface ITypographyProps {
     className?: string;
     component?: React.ElementType;
     variant?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'paragraph' | 'body' | string;
+    style?: React.CSSProperties;
     marginBottom?: boolean;
 }
 
@@ -19,6 +20,7 @@ export default function Typography(props: ITypographyProps): ReturnType<React.FC
         className, 
         component,
         variant = 'body',
+        style,
         marginBottom = false
     } = props;
 
@@ -48,7 +50,7 @@ export default function Typography(props: ITypographyProps): ReturnType<React.FC
     }
     const tagName = component || variantMaping[variant] || 'span';
 
-    const Component = useCreateElement(tagName, { className: styles }, children);
+    const Component = useCreateElement(tagName, { className: styles, style }, children);
 
     return Component as React.ReactElement;
 }
