@@ -1,0 +1,37 @@
+.root {
+    display: inline-flex;
+    position: relative;
+    color: #faaf00;
+    cursor: pointer;
+    text-align: left;
+    .input {
+        border: 0;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        white-space: nowrap;
+        position: absolute;
+        width: 1px;
+    }
+    .label {
+        cursor: inherit;
+    }
+    .icon {
+        pointer-events: none;
+        &.iconEmpty {
+            color: rgb(180, 180, 180);
+        }
+        &.iconHover {
+            transition: 0.2s ease-in-out;
+        }
+    }
+    &.readOnly {
+        cursor: default;
+    }
+    &.disabled {
+        cursor: default;
+        opacity: 0.6;
+    }
+}
