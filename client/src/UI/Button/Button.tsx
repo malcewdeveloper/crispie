@@ -5,11 +5,13 @@ import classes from './Button.module.scss';
 export interface IBaseButton {
   children?: React.ReactNode;
   color?: 'primary' | string;
+  className?: string;
   disabled?: boolean;
   iconBefore?: React.ReactNode;
   iconAfter?: React.ReactNode;
   style?: React.CSSProperties;
   variant?: 'contained' | 'outlined' | 'text';
+  onClick?: () => void;
   href?: string;
 }
 
@@ -18,8 +20,10 @@ const Button = (props: IBaseButton): ReturnType<React.FC> => {
   const { 
     color, 
     children, 
+    className,
     disabled, 
     variant='text', 
+    onClick,
     iconBefore,
     iconAfter,
     style,
@@ -32,7 +36,8 @@ const Button = (props: IBaseButton): ReturnType<React.FC> => {
     [classes.disabled]: disabled,
     [classes.text]: variant === 'text',
     [classes.outlined]: variant === 'outlined',
-    [classes.contained]: variant === 'contained'
+    [classes.contained]: variant === 'contained',
+    [className]: className
   })
   
   return (
