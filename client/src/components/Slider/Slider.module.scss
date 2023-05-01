@@ -1,0 +1,42 @@
+.root {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    .track {
+        position: relative;
+        display: flex;
+        flex-wrap: nowrap;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.2s ease-in-out;
+        z-index: 1;
+    }
+    .item {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 auto;
+        width: 100%;
+        height: 100%;
+        &.active {
+            z-index: 10;
+        }
+    }
+    .controll {
+        position: absolute;
+        z-index: 100;
+        &.buttonPrev {
+            top: 50%;
+            left: 50px;
+        }
+        &.buttonNext {
+            top: 50%;
+            right: 50px;
+        }
+    }
+}
