@@ -4,14 +4,14 @@ import classes from '../../Slider.module.scss';
 
 
 export default function SliderItem(props) {
-    const { children, active } = props;
+    const { children, active, style } = props;
 
     const styles = clsx(classes.item, {
 
     })
 
     return (
-        <li className={ styles }>
+        <li className={ styles } style={ style }>
             { children }
         </li>
     )
