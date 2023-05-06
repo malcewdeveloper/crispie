@@ -2,6 +2,7 @@ import React from "react";
 import { IBaseButton } from "../Button/Button";
 import clsx from "clsx";
 import classes from './IconButton.module.scss';
+import useCreateElement from "../../utils/hooks/useCreateElement";
 
 
 interface IIconButtonProps extends IBaseButton {
@@ -12,24 +13,31 @@ export default function IconButton(props: IIconButtonProps) {
     const { 
         children,
         color,
+        className,
         disabled,
+        onClick,
         style,
         href
     } = props;
 
-    const styles = clsx({
-        [classes.root]: true,
+    const styles = clsx(classes.root, {
         [classes.disabled]: disabled,
-        [classes.primary]: color === 'primary'
+        [classes.primary]: color === 'primary',
+        [className]: className
     })
 
-    return (
-        href ?
-        <a className={ styles } style={ style }>
-            { children }
-        </a> :
-        <button className={ styles } style={ style }>
-            { children }
-        </button>
-    )
+    const tagNameButton = href ? 'a' : 'button';
+
+    const buttonIconProps = {
+        className: styles,
+        color,
+        disabled,
+        onClick,
+        style,
+        href
+    }
+
+    const IconButtonRoot = useCreateElement(tagNameButton, buttonIconProps, children)
+
+    return IconButtonRoot as React.ReactElement;
 }
