@@ -14,3 +14,11 @@ CREATE TABLE tokens (
     FOREIGN KEY (user_id) REFERENCES users (id)
 )
 
+CREATE TABLE general_slider_content (
+    id SERIAL PRIMARY KEY,
+    image VARCHAR(255) DEFAULT NULL,
+    image_mobile VARCHAR(255) DEFAULT NULL,
+    button_text VARCHAR(255) DEFAULT NULL,
+    title VARCHAR(255) DEFAULT NULL,
+    description VARCHAR(1000) DEFAULT NULL
+)
