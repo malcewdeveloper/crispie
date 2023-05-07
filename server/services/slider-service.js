@@ -7,6 +7,7 @@ class SliderService {
         
         response.forEach((slide) => {
             const { 
+                id,
                 image, 
                 image_mobile: imageMobile, 
                 button_text: buttonText, 
@@ -15,6 +16,7 @@ class SliderService {
             } = slide;
 
             const slideDto = {
+                id,
                 image,
                 imageMobile,
                 buttonText,
