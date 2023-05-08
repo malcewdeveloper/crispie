@@ -169,8 +169,8 @@ export default function Slider(props: ISliderProps): ReturnType<React.FC> {
             ...style
         }} ref={ sliderRef }>
             <SliderTrack ref={ sliderTrackRef }>
-                {slides.map((slide, index) => {
-                    return React.cloneElement(slide, { style: { width: slideWidth + '%' } })
+                {slides.map((slide, index) => {                    
+                    return React.cloneElement(slide, { style: { ...slide.props.style, width: slideWidth + '%' } })
                 })}
             </SliderTrack>
             <SliderControll component='prev' onClick={ () => handleClickPrev() } />
