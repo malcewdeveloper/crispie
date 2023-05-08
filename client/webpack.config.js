@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const isDev = process.env.NODE_ENV === 'development';
 const isProd = !isDev;
@@ -35,7 +36,16 @@ module.exports = {
             },
             {
                 test: /\.(png|jpg|svg|gif)$/,
-                use: 'file-loader'
+                use:[
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            outputPath: 'static/images/',
+                            publicPath: '/static/images/'
+                        }
+                    }
+                ]
             },
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/i,
@@ -91,6 +101,11 @@ module.exports = {
         }),
         new MiniCssExtractPlugin({
             filename: '[name].[contenthash].css'
+        }),
+        new CopyWebpackPlugin({
+            patterns: [
+                {from: 'src/assets/images', to: 'static/images'}
+            ]
         })
     ],
     devServer: {
