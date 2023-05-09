@@ -8,7 +8,7 @@ import gsap from 'gsap';
 import classes from './Slider.module.scss';
 
 
-interface ISliderProps {
+export interface ISliderProps {
     autoPlay?: boolean;
     autoPlayTime?: number;
     children?: React.ReactNode;
