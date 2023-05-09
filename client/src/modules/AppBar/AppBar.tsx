@@ -59,7 +59,7 @@ export default function AppBar(props: IAppBarProps): ReturnType<React.FC> {
                             gap: '15px',
                             padding: '15px 0'
                         }}>
-                        <Link href="/" underline='none'>
+                        <Link href="/" underline='none' style={ {flexShrink: 0} }>
                             <img src={ logo } alt="Crispie logo" />     
                         </Link>
                         <Textfield
