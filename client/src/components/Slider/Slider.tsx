@@ -12,6 +12,7 @@ interface ISliderProps {
     autoPlay?: boolean;
     autoPlayTime?: number;
     children?: React.ReactNode;
+    className?: string;
     height?: number;
     infinity?: boolean;
     width?: number;
@@ -31,6 +32,7 @@ export default function Slider(props: ISliderProps): ReturnType<React.FC> {
         autoPlay,
         autoPlayTime=3000,
         children, 
+        className,
         style, 
         height,
         infinity,
@@ -41,7 +43,7 @@ export default function Slider(props: ISliderProps): ReturnType<React.FC> {
     } = props;
 
     const styles = clsx(classes.root, {
-
+        [className]: className
     })
     
     const [currentSlide, setCurrentSlide] = React.useState<number>(0);
