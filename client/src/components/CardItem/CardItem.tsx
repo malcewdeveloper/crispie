@@ -41,7 +41,7 @@ export default function CardItem(props: ICardItem): ReturnType<React.FC> {
 
     return (
         <Card className={ styles } style={ style }>
-            <Link href={`/goods/${id}`}>
+            <Link href={`/products/${id}`}>
                 <CardMedia image={ image } alt={ title } />
             </Link>
             <CardContent>
