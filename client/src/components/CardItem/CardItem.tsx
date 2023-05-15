@@ -45,11 +45,11 @@ export default function CardItem(props: ICardItem): ReturnType<React.FC> {
                 <CardMedia image={ image } alt={ title } />
             </Link>
             <CardContent>
-                <Typography component='div'>{ title }</Typography>
+                <Typography component='div' style={{ whiteSpace: 'normal' }}>{ title }</Typography>
                 <Typography component='p' style={{
-                    color: '#888'
+                    color: '#888',
                 }}>{ merchant }</Typography>
-                <Rating value={rating} readOnly />
+                <Rating value={ rating } readOnly />
                 <Typography variant='h5'>{ price + '₽' }</Typography>
             </CardContent>
             {actions && <CardActions style={{
