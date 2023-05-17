@@ -3,8 +3,11 @@
 .root {
     background-color: $black;
     border-radius: 4px;
-    display: none;
-    position: absolute;
+    color: #fff;
+    &.droppable {
+        position: absolute;
+        display: none;
+    }
     &.open {
         display: block;
     }
