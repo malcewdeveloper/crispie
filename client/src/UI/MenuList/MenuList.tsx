@@ -31,5 +31,3 @@ export default function MenuList(props: IMenuListProps): ReturnType<React.FC> {
         </ul>
     )
 }
-
-Add new props in the component and update style  
