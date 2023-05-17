@@ -1,0 +1,22 @@
+@import '../../styles/variables.scss';
+
+.root {
+    background-color: $orange;
+
+    .about {
+        flex: 0 0 auto; 
+        margin-bottom: 20px;
+    }
+
+    .menu {
+        flex: 0 0 auto;
+    }
+
+    .social {
+
+    }
+    
+    .formSubscribe {
+        margin-top: 45px;
+    }
+}
