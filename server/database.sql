@@ -20,7 +20,8 @@ CREATE TABLE categories (
     created_at TIMESTAMP DEFAULT now(),
     updated_at TIMESTAMP DEFAULT now(),
     url VARCHAR(255),
-    parent_category_id INTEGER,
+    parent_category INTEGER,
+    is_deleted BOOLEAN DEFAULT FALSE,
     FOREIGN KEY (parent_category_id) REFERENCES categories (id)
 )
 
