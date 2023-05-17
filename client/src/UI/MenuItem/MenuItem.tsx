@@ -5,17 +5,26 @@ import classes from './MenuItem.module.scss';
 
 interface IMenuItemProps {
     children?: React.ReactNode;
+    className?: string;
+    hoverable?: boolean;
+    style?: React.CSSProperties;
 }
 
 export default function MenuItem(props: IMenuItemProps): ReturnType<React.FC> {
 
-    const { children } = props;
+    const { 
+        children, 
+        className,
+        hoverable=true,
+        style
+    } = props;
 
-    const styles = clsx({
-        [classes.root]: true
+    const styles = clsx(classes.root, {
+        [classes.hoverable]: hoverable,
+        [className]: className
     })
 
     return (
-        <li className={ styles }>{ children }</li>
+        <li className={ styles } style={ style }>{ children }</li>
     )
 }

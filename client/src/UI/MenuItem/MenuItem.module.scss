@@ -1,7 +1,9 @@
 .root {
     cursor: pointer;
+    color: inherit;
     padding: 6px 16px;
-    &:hover {
+
+    &.hoverable:hover {
         background-color: rgba(200, 200, 200, 0.2);
     }
 }
