@@ -50,4 +50,7 @@ export interface ICategory {
     name: string;
     createdAt: string;
     updatedAt: string;
+    url: string;
+    parentCategory: number; 
+    isDeleted?: boolean;
 }
