@@ -21,7 +21,8 @@ export default function MenuList(props: IMenuListProps): ReturnType<React.FC> {
     } = props;
 
     const styles = clsx({
-        [classes.root]: true
+        [classes.root]: true,
+        [className]: className
     })
 
     return (
