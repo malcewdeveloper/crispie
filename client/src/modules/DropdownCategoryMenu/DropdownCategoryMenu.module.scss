@@ -1,0 +1,36 @@
+@import '../../styles/variables.scss';
+
+.root {
+    display: flex;
+    width: 1230px;
+    z-index: 10;
+    .sider {
+        border-right: 1px solid $lightOrange;
+        width: 33%;
+        max-width: 100%;
+    }
+    .menu {
+        padding: 0 15px;
+        overflow-y: auto;
+        width: 100%;
+    }
+    .list {
+        width: 33%;
+        .primaryHover:hover {
+            background-color: transparent;
+            color: $orange;
+        }
+    }
+    .item {
+        &.active {
+            background-color: rgba(200, 200, 200, 0.2);
+        }
+        &.primaryHover:hover {
+            background-color: transparent;
+            color: $orange;
+        }
+    }
+    &.open {
+        display: flex;
+    }
+}
