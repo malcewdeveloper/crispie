@@ -1,6 +1,7 @@
 import React from "react";
-import clsx from 'clsx';
 import Container from "../../../../UI/Container/Container";
+import Link from "../../../../UI/Link/Link";
+import clsx from 'clsx';
 import classes from './TopBar.module.scss';
 
 
@@ -17,7 +18,25 @@ const TopBar = (props: ITopBarProps) => {
     })
 
     return (
-        <div className={ styles }>{ children }</div>
+        <div className={ styles }>
+            <Container style={{
+                alignItems: 'center',
+                display: 'flex',
+                justifyContent: 'space-between',
+                maxWidth: '1270px'
+            }}>                    
+                <Link href="/delivery">Доставка и оплата</Link>
+                <div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '20px'
+                }}>
+                    <Link>Местоположение</Link>
+                    <Link href="/login">Вход</Link>
+                    <Link href="/register">Регистрация</Link>
+                </div>
+            </Container>
+        </div>
     )
 }
 
