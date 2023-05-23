@@ -16,7 +16,8 @@ export default function MenuItem(props: IMenuItemProps): ReturnType<React.FC> {
         children, 
         className,
         hoverable=true,
-        style
+        style,
+        ...rest
     } = props;
 
     const styles = clsx(classes.root, {
@@ -25,6 +26,6 @@ export default function MenuItem(props: IMenuItemProps): ReturnType<React.FC> {
     })
 
     return (
-        <li className={ styles } style={ style }>{ children }</li>
+        <li className={ styles } style={ style } { ...rest }>{ children }</li>
     )
 }
