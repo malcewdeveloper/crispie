@@ -9,6 +9,7 @@ interface ILinkProps {
     children?: React.ReactNode;
     color?: 'primary' | 'inherit' | string;
     component?: 'button' | string;
+    className?: string;
     href?: string;
     underline?: 'always' | 'hover' | 'none';
     style?: React.CSSProperties;
@@ -22,6 +23,7 @@ const Link = (props: ILinkProps) => {
         children,
         color='inherit',
         component='a',
+        className,
         href, 
         underline='always',
         style
@@ -34,7 +36,8 @@ const Link = (props: ILinkProps) => {
         [classes.underlineHover]: underline === 'hover',
         [classes.underlineAlways]: underline === 'always',
         [classes.primary]: color === 'primary',
-        [classes.inherit]: color === 'inherit' 
+        [classes.inherit]: color === 'inherit',
+        [className]: className 
     })
     
     if(!href || component && component === 'button') {
