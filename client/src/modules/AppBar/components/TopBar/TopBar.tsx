@@ -1,4 +1,5 @@
 import React from "react";
+import HeaderUserProfile from "../../../HeaderUserProfile/HeaderUserProfile";
 import Container from "../../../../UI/Container/Container";
 import Link from "../../../../UI/Link/Link";
 import clsx from 'clsx';
@@ -32,8 +33,7 @@ const TopBar = (props: ITopBarProps) => {
                     gap: '20px'
                 }}>
                     <Link>Местоположение</Link>
-                    <Link href="/login">Вход</Link>
-                    <Link href="/register">Регистрация</Link>
+                    <HeaderUserProfile />
                 </div>
             </Container>
         </div>
