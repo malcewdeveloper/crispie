@@ -20,36 +20,41 @@ class UserService {
                 values: [email, hashPassword, activationLink]
             }
             // mailService.sendActiovationLink(email, `${process.env.API_URL}/api/activate/${activationLink}`);
-            const user = db.query(query);
-            return user;
+            const response = db.query(query); // Хранится Promise c данными пользователя после запроса к DB
+            return response;
         })
-        .then(user => {
-            const tokens = tokenService.generateToken({...user.rows[0]});
-            tokenService.saveToken(user.rows[0].id, tokens.refreshToken);
+        .then(response => {
+            const { rows } = response;
+            const { id } = rows[0];
+            const tokens = tokenService.generateToken({ id });
+            tokenService.saveToken(id, tokens.refreshToken);
 
             return {
                 ...tokens,
-                user: user.rows[0]
+                user: rows[0]
             }
         })
     }
 
     async login(email, password) {
-        const user = await db.query('SELECT * FROM users WHERE email=$1', [email]);
-        if(user.rows.length < 1) {
+        const { rows } = await db.query('SELECT * FROM users WHERE email=$1', [email]); // Получаем данные пользвоателя
+        const { id } = rows[0]
+        if(rows.length < 1) {
             throw ApiError.BadRequest('Пользователь с таким email не найден');
         }
 
-        return bcrypt.compare(password, user.rows[0].password)
+        return bcrypt.compare(password, rows[0].password)
         .then(isEquelPassword => {
             if(!isEquelPassword) {
                 throw ApiError.BadRequest('Логин или пароль указан неверно');
             }
-            const tokens = tokenService.generateToken({...user.rows[0]});
-            tokenService.saveToken(user.rows[0].id, tokens.refreshToken);
+            
+            const tokens = tokenService.generateToken({ id });
+            tokenService.saveToken(id, tokens.refreshToken);
+
             return {
                 ...tokens,
-                user: user.rows[0]
+                user: rows[0]
             }
         })
     }
@@ -61,19 +66,21 @@ class UserService {
 
     async refresh(refreshToken) {
         if(!refreshToken) {
-            throw new ApiError.UnauthorizedError();
+            throw ApiError.UnauthorizedError();
         }
         const userData = tokenService.validateRefreshToken(refreshToken);
         const tokenDb = await tokenService.findToken(refreshToken);
         if(!userData || !tokenDb) {
             throw ApiError.UnauthorizedError();
         }
-        const user = await db.query('SELECT * FROM users WHERE id=$1', [userData.id]);
-        const tokens = tokenService.generateToken({ ...user.rows[0] });
-        tokenService.saveToken(user.rows[0].id, tokens.refreshToken);
+        const { rows } = await db.query('SELECT * FROM users WHERE id=$1', [userData.id]); // Получаем данные пользователя
+        const { id } = rows[0];
+        const tokens = tokenService.generateToken({ id });
+        tokenService.saveToken(id, tokens.refreshToken);
+
         return {
             ...tokens,
-            user: user.rows[0]
+            user: rows[0]
         }
     }
 
