@@ -1,5 +1,4 @@
 import React from "react";
-import useCreateElement from "../../utils/hooks/useCreateElement";
 import clsx from 'clsx';
 import classes from './Container.module.scss';
 
@@ -13,6 +12,7 @@ interface IContainerProps {
     className?: string;
     disablePaddings?: boolean;
     style?: React.CSSProperties; 
+    [key: string]: any;
 }
 
 export default function Container(props: IContainerProps): ReturnType<React.FC> {
@@ -22,7 +22,8 @@ export default function Container(props: IContainerProps): ReturnType<React.FC> 
         component='div',
         className,
         disablePaddings, 
-        style 
+        style,
+        ...rest
     } = props;
 
     const styles = clsx(classes.root, {
@@ -36,10 +37,11 @@ export default function Container(props: IContainerProps): ReturnType<React.FC> 
 
     const containerProps = {
         className: styles,
-        style
+        style,
+        ...rest
     }
 
-    const ContainerRoot = useCreateElement(component, { ...containerProps }, children);
-
+    const ContainerRoot =  React.createElement(component, { ...containerProps }, children );
     return ContainerRoot as React.ReactElement;
+
 }
