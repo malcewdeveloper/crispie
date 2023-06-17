@@ -12,6 +12,8 @@ import { BsHeart, BsCart3 } from 'react-icons/bs'
 import clsx from 'clsx';
 import classes from './AppBar.module.scss';
 import logo from '../../assets/images/logo.svg';
+import useMatchMedia from "../../utils/hooks/useMatchMedia";
+import AppBarMobile from "./components/AppBarMobile/AppBarMobile";
 
 
 interface IAppBarProps {
@@ -22,6 +24,8 @@ export default function AppBar(props: IAppBarProps): ReturnType<React.FC> {
 
     const { position = 'static' } = props;
 
+    const [isTablet] = useMatchMedia(['(max-width: 1023px)']);
+
     const styles = clsx({
         [classes.root]: true,
         [classes.static]: position === 'static',
@@ -31,8 +35,13 @@ export default function AppBar(props: IAppBarProps): ReturnType<React.FC> {
 
     return (
         <header className={ styles }>
-            <TopBar />
-            <BottomBar />
+            {isTablet ?
+            <AppBarMobile /> : 
+            <>
+                <TopBar />
+                <BottomBar />
+            </>
+            }
         </header>
     )
 }
